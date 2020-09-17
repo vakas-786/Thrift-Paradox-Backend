@@ -14,6 +14,13 @@ class Api::V1::UsersController < ApplicationController
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
   end
+
+  def update 
+    #could use current_user.update need to check with a byebug
+    user = User.find(params(:id))
+    user.update(user_params)
+    render json: user 
+  end 
  
   private
  
