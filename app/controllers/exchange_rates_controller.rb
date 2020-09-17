@@ -1,4 +1,6 @@
 class ExchangeRatesController < ApplicationController
+    skip_before_action :authorized
+    
     def index 
         rates = ExchangeRate.all 
         render json: rates 

@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+    skip_before_action :authorized
+    
     def index 
         accounts = Account.all 
         render json: accounts 

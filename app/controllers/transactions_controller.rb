@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+    skip_before_action :authorized
 
     def index 
         transactions = Transaction.all 
