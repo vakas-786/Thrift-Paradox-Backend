@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2020_09_17_152159) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.integer "income"
-    t.integer "expense"
-    t.integer "balance"
-    t.integer "investments"
-    t.integer "saving"
-    t.integer "totalSavings"
+    t.float "income"
+    t.float "expense"
+    t.float "balance"
+    t.float "investments"
+    t.float "saving"
+    t.float "totalSavings"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(version: 2020_09_17_152159) do
 
   create_table "exchange_rates", force: :cascade do |t|
     t.string "name"
-    t.integer "value"
+    t.float "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "prizes", force: :cascade do |t|
     t.string "image_url"
-    t.integer "value"
+    t.float "value"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(version: 2020_09_17_152159) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "item"
-    t.string "type"
-    t.integer "amount"
-    t.string "date"
+    t.string "type_trans"
+    t.string "category"
+    t.float "amount"
+    t.date "date"
     t.bigint "account_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

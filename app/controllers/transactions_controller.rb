@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
 
     def create 
         transaction = Transaction.create(transaction_params)
+        Account.update_balance(transaction_params[:amount], transaction.account.balance, transaction.account)
         render json: transaction 
     end 
 
@@ -25,7 +26,7 @@ class TransactionsController < ApplicationController
     private 
 
     def transaction_params
-        params.require(:transaction).permit(:item, :type, :amount, :date, :account_id)
+        params.require(:transaction).permit( :item, :type_trans, :category, :amount, :date, :account_id)
     end 
 
 end
