@@ -7,10 +7,5 @@ class Account < ApplicationRecord
     
     account_balance = newBalance
     account.update(balance: account_balance)
-    # if transaction_amount[1] == '-'
-    #   account.update(expense: transaction_amount.to_i)
-    # else 
-    #   account.update(income: transaction_amount.to_i)
-    # end
   end
 end 

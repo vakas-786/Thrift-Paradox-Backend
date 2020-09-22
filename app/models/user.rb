@@ -7,4 +7,12 @@ class User < ApplicationRecord
     has_one :account 
     has_many :transactions, through: :account
 
+    def self.addToken(savings, account_user, user_token)
+        if savings > 2000 
+            account_user.update(token: user_token += 1)
+        else 
+            account_user.update(token: 0)
+        end 
+    end 
+
 end
