@@ -1,4 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :username, :firstname, :lastname, :avatar, :token
-  # :id, 
+  has_many :prizes
 end
