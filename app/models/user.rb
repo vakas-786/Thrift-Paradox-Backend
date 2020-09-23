@@ -2,6 +2,7 @@ require 'bcrypt'
 class User < ApplicationRecord
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
+    validates :token, numericality: { less_than: 0 }
     
     has_many :prizes 
     has_one :account 
