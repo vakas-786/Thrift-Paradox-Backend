@@ -2,7 +2,7 @@ require 'bcrypt'
 class User < ApplicationRecord
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
-    validates :token, numericality: { less_than: 0 }
+    validates :token, numericality: { greater_than: -1 }
     
     has_many :prizes 
     has_one :account 
@@ -15,11 +15,5 @@ class User < ApplicationRecord
             account_user.update(token: 0)
         end 
     end 
-
-    # def self.update_token(params, user)
-    #     byebug
-    #     user.update(token: params)
-    # end 
-
 
 end
