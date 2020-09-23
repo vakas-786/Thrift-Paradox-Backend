@@ -15,4 +15,10 @@ class User < ApplicationRecord
         end 
     end 
 
+    # def self.update_token(params, user)
+    #     byebug
+    #     user.update(token: params)
+    # end 
+
+
 end

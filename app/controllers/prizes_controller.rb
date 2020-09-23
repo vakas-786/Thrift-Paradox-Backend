@@ -7,7 +7,8 @@ class PrizesController < ApplicationController
     end 
 
     def lottery 
-        random = Prize.all 
+        prizes = Prize.all 
+        random = prizes.sample
         render json: random 
     end 
 
