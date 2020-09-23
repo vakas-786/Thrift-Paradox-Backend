@@ -15,5 +15,4 @@ class User < ApplicationRecord
             account_user.update(token: 0)
         end 
     end 
-
 end

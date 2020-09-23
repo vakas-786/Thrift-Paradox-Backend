@@ -8,7 +8,7 @@ class TransactionsController < ApplicationController
 
     def create 
         transaction = Transaction.create(transaction_params)
-        Account.update_balance(transaction_params[:amount], transaction.account.balance, transaction.account)
+        Account.new_balance(transaction_params[:amount], transaction.account.balance, transaction.account)
         render json: transaction 
     end 
 

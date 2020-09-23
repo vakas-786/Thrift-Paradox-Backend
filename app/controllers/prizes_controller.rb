@@ -6,15 +6,16 @@ class PrizesController < ApplicationController
         render json: prizes 
     end 
 
-    def lottery 
+    def lottery
         prizes = Prize.all 
-        random = prizes.sample
-        render json: random 
+        @random = prizes.sample
+        render json: @random 
     end 
 
-    def show 
-        prize = Prize.find(params[:id])
-        render json: prize 
-    end 
+    # def show 
+    #     prize = Prize.find(params[:id])
+    #     render json: prize 
+    # end 
+
 
 end
