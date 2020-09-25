@@ -11,8 +11,6 @@ class User < ApplicationRecord
     def self.addToken(savings, account_user, user_token)
         if savings > 2000 
             account_user.update(token: user_token += 1)
-        else 
-            account_user.update(token: 0)
         end 
-    end 
+    end
 end

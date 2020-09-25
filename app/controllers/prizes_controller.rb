@@ -9,13 +9,15 @@ class PrizesController < ApplicationController
     def lottery
         prizes = Prize.all 
         @random = prizes.sample
+        Prize.removeToken(@random)
+        Prize.changeStatus(@random)
         render json: @random 
     end 
 
-    # def show 
-    #     prize = Prize.find(params[:id])
-    #     render json: prize 
-    # end 
+    def show 
+        prize = Prize.find(params[:id])
+        render json: prize 
+    end 
 
 
 end
