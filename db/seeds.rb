@@ -1,11 +1,34 @@
-
-# Transaction.destroy_all 
-# Account.destroy_all 
+Transaction.destroy_all 
+Account.destroy_all 
 Prize.destroy_all
+User.destroy_all
 
-# Account.create(income: 0, expense: 0, balance: 0, investments: 0, saving: 0, totalSavings: 0, user_id: User.all.first.id)
+User.create(username: 'testing', password: 'password', firstname: 'Cyrus', lastname: 'Khan', token: 0)
 
-# Transaction.create(item: "cash", type_trans: "Income", category: "Auto", amount: 20.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Account.create(saving: 0, user_id: User.all.first.id)
+
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+Transaction.create(item: "Cash", category: "Salary", amount: 200.00, date: Faker::Date.between(from: '2020-01-01', to: '2020-09-30'), account_id: Account.all.first.id)
+
 
 Prize.create(image_url: 'https://i.imgur.com/JyHrUVb.png' , value: 300.00, user_id: User.all.first.id, name: "Zombie")
 Prize.create(image_url: 'https://i.imgur.com/j1URdpA.png' , value: 450.00, user_id: User.all.first.id,  name: "Jelly")

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :exchange_rates
   resources :transactions
-  resources :accounts
+  resources :accounts 
   resources :prizes 
       get '/lottery', to: 'prizes#lottery'
   

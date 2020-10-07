@@ -1,4 +1,4 @@
 class AccountSerializer < ActiveModel::Serializer
-  attributes :id, :income, :expense, :balance, :investments, :saving, :totalSavings
+  attributes :id, :saving
   has_one :user
 end

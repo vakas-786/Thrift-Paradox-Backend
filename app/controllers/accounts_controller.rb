@@ -20,6 +20,6 @@ class AccountsController < ApplicationController
 
     private 
     def account_params
-        params.require(:account).permit(:income, :expense, :balance, :investments, :saving, :totalSavings, :user_id)
+        params.require(:account).permit(:saving, :user_id)
     end 
 end
