@@ -3,13 +3,20 @@ class TransactionsController < ApplicationController
 
     def index 
         transactions = Transaction.all 
-        render json: transactions
+        order = transactions.sort { |a,b| b.date <=> a.date}
+        render json: order
     end  
 
     def create 
         transaction = Transaction.create(transaction_params)
         Account.new_balance(transaction_params[:amount], transaction.account.balance, transaction.account)
-        render json: transaction 
+        render json: transaction  
+    end 
+
+    def update 
+        transaction = Transaction.find(params[:id])
+        transaction.update(transaction_params)
+        render json: transaction
     end 
 
     def show 

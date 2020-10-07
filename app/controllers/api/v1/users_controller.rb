@@ -6,10 +6,10 @@ class Api::V1::UsersController < ApplicationController
   end
  
   def create
-    byebug
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
+      Account.create(income: 0, expense: 0, balance: 0, investments: 0, saving: 0, totalSavings: 0, user_id: @user.id)
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
