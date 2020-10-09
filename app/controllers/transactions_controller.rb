@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
-    skip_before_action :authorized
+    skip_before_action :authorized 
+    before_action :find_transaction, only: [:update]
 
     def index 
         transactions = Transaction.all 
@@ -13,7 +14,6 @@ class TransactionsController < ApplicationController
     end 
 
     def update 
-        transaction = Transaction.find(params[:id])
         transaction.update(transaction_params)
         render json: transaction
     end 
@@ -24,6 +24,7 @@ class TransactionsController < ApplicationController
     end 
 
     def destroy 
+        byebug
         transaction = Transaction.find(params[:id])
         transaction.destroy 
         render json: transaction 
@@ -34,5 +35,9 @@ class TransactionsController < ApplicationController
     def transaction_params
         params.require(:transaction).permit( :item, :type_trans, :category, :amount, :date, :account_id)
     end 
+
+    def find_transaction
+        @transaction = Transaction.find(params[:id])
+    end
 
 end
