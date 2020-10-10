@@ -24,7 +24,6 @@ class TransactionsController < ApplicationController
     end 
 
     def destroy 
-        byebug
         transaction = Transaction.find(params[:id])
         transaction.destroy 
         render json: transaction 
