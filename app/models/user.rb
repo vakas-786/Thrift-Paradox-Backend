@@ -5,7 +5,7 @@ class User < ApplicationRecord
     validates :token, numericality: { greater_than: -1 }
     
     has_many :prizes 
-    has_one :account 
+    has_one :account
     has_many :transactions, through: :account
 
     def self.addToken(savings, account_user, user_token)
