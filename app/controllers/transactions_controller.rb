@@ -1,5 +1,5 @@
 class TransactionsController < ApplicationController
-    skip_before_action :authorized, only: [:create, update, :show, destroy]
+    skip_before_action :authorized, only: [:create, :update, :show, :destroy]
 
     def index 
         transactions = current_user.transactions
