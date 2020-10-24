@@ -1,8 +1,8 @@
 class TransactionsController < ApplicationController
-    skip_before_action :authorized 
+    skip_before_action :authorized, only: [:create, update, :show, destroy]
 
     def index 
-        transactions = Transaction.all 
+        transactions = current_user.transactions
         order = transactions.sort { |a,b| b.date <=> a.date}
         render json: order
     end  
@@ -20,7 +20,7 @@ class TransactionsController < ApplicationController
 
     def show 
         transaction = Transaction.find(params[:id])
-        render json: transaction
+        render json: transaction 
     end 
 
     def destroy 

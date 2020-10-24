@@ -1,8 +1,8 @@
 class PrizesController < ApplicationController
-    skip_before_action :authorized
+    skip_before_action :authorized, only: [:create, :lottery, :show]
 
     def index 
-        prizes = Prize.all 
+        prizes = current_user.prizes 
         render json: prizes 
     end 
 
@@ -22,7 +22,7 @@ class PrizesController < ApplicationController
     def update 
         prize = Prize.find(params[:id])
         prize.update(prize_params)
-        account = Account.all.first
+        account = current_user.account
         Transaction.prize_transaction(prize, account)
         render json: prize
     end 

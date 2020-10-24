@@ -1,8 +1,8 @@
 class AccountsController < ApplicationController
-    skip_before_action :authorized
+    skip_before_action :authorized, only: [:update, :show]
     
     def index 
-        accounts = Account.all 
+        accounts = current_user.account
         render json: accounts 
     end 
 
