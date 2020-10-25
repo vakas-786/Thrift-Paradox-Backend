@@ -12,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
       @account = Account.create(saving: 0, user_id: @user.id)
-      Transaction.create(item: 'Welcome here is a gift from us!', type_trans: 'Income', category: 'Income', amount: 50.00, date: Time.now.strftime("%d/%m/%Y %H:%M"), account_id: @account.id )
+      Transaction.create(item: 'Welcome here is a gift from us!', type_trans: 'Income', category: 'Misc', amount: 50.00, date: Time.now.strftime("%d/%m/%Y %H:%M"), account_id: @account.id )
       User.assign_prizes(@user)
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
