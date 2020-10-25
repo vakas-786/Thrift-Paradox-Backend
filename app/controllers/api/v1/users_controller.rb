@@ -1,5 +1,7 @@
+require 'date'
 class Api::V1::UsersController < ApplicationController
     skip_before_action :authorized, only: [:create, :update]
+    current_time = DateTime.now
  
   def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -9,7 +11,8 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
-      Account.create(saving: 0, user_id: @user.id)
+      @account = Account.create(saving: 0, user_id: @user.id)
+      Transaction.create(item: `Welcome here's a gift from us!`, type_trans: 'Income', category: 'Income', amount: 50.00, date: Time.now.strftime("%d/%m/%Y %H:%M"), account_id: @account.id )
       User.assign_prizes(@user)
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
