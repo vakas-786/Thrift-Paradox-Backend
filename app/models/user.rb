@@ -14,7 +14,7 @@ class User < ApplicationRecord
         end 
     end
 
-    def assign_prizes(user)
+    def self.assign_prizes(user)
         prizes_array = []
         
         prizes_array.push(Prize.create(image_url: 'https://i.imgur.com/JyHrUVb.png' , value: 300.00, user_id: user.id, name: "Zombie", status: false))
