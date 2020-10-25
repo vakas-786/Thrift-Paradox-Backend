@@ -1,5 +1,5 @@
 class PrizesController < ApplicationController
-    skip_before_action :authorized, only: [:create, :lottery, :show]
+    skip_before_action :authorized, only: [:create, :show]
 
     def index 
         prizes = current_user.prizes 
@@ -7,7 +7,7 @@ class PrizesController < ApplicationController
     end 
 
     def lottery
-        prizes = Prize.all 
+        prizes = current_user.prizes 
         @random = prizes.sample
         Prize.removeToken(@random)
         Prize.changeStatus(@random)
