@@ -7,11 +7,15 @@ class PrizesController < ApplicationController
     end 
 
     def lottery
+        if current_user.token > 0 
         prizes = current_user.prizes 
         @random = prizes.sample
         Prize.removeToken(@random)
         Prize.changeStatus(@random)
         render json: @random 
+        else 
+            render json: { error: 'insufficient amount of lottery tokens' }, status: :not_acceptable
+        end
     end 
 
     def show 
