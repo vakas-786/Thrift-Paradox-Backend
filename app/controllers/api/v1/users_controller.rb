@@ -9,8 +9,8 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
-      User.assign_prizes(@user)
       Account.create(saving: 0, user_id: @user.id)
+      User.assign_prizes(@user)
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
