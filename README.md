@@ -1,25 +1,31 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # Thrift-Paradox-Backend
+<a href='https://github.com/vakas-786/Thrift-Paradox' >See the Readme in the front end for more information</a>. 
+
+# Models and Relationships 
+User
+```sh
+    has_many :prizes 
+    has_one :account
+    has_many :transactions, through: :account
+```
+
+Transaction 
+```sh
+    belongs_to :account 
+```
+
+Prize
+
+```sh
+    belongs_to :user
+```
+
+Account 
+
+```sh
+    belongs_to :user
+    has_many :transactions 
+```
+
+
+
