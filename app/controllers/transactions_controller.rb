@@ -1,8 +1,8 @@
 class TransactionsController < ApplicationController
-    skip_before_action :authorized, only: [:update, :show, :destroy]
+    skip_before_action :authorized, only: [:index, :update, :show, :destroy]
 
     def index 
-        transactions = current_user.transactions
+        transactions = Transaction.all
         order = transactions.sort { |a,b| b.date <=> a.date}
         render json: order
     end  
